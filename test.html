@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="target">
+  Click here
+</div>
+<div id="other">
+  Trigger the handler
+</div>
+<script async type="text/javascript">
+    $("#target").click(function () {
+        alert("Handler for .click() called.");
+    });
+
+    $("#other").click(function () {
+        $("#target").click();
+    });
+</script>
+</body>
+</html>

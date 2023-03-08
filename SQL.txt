@@ -1,0 +1,80 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le : dim. 26 juin 2022 à 16:21
+-- Version du serveur : 8.0.27
+-- Version de PHP : 7.4.26
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `philippe`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `membre`
+--
+
+DROP TABLE IF EXISTS `membre`;
+CREATE TABLE IF NOT EXISTS `membre` (
+  `idmembre` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(100) NOT NULL,
+  `pseudo` varchar(100) NOT NULL,
+  `token` varchar(10000) NOT NULL,
+  `password` varchar(10000) NOT NULL,
+  PRIMARY KEY (`idmembre`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `membre`
+--
+
+INSERT INTO `membre` (`idmembre`, `email`, `pseudo`, `token`, `password`) VALUES
+(1, 'lhpp.philippe@gmail.com', 'phil', '595451977', '$2y$10$D7qQ.XXPvn9Yht80VqGSPO46V4VENR3pzFno3Yj0OdDBV2A8sruVC');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE IF NOT EXISTS `orders` (
+  `order_number` int NOT NULL AUTO_INCREMENT,
+  `employeur` varchar(100) NOT NULL,
+  `activite` varchar(500) NOT NULL,
+  `salaire` double NOT NULL,
+  `debutActivite` date NOT NULL,
+  `finActivite` date NOT NULL,
+  PRIMARY KEY (`order_number`)
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `orders`
+--
+
+INSERT INTO `orders` (`order_number`, `conducteur`, `lieudepart`, `lieuarrive`, `participation`, `datedepart`,'datearrive') VALUES
+(24, 'Charlene','paris','bordeau', 30000, '2021-09-01', '2022-04-09'),
+(37, 'Philippe','paris','bordeau', 30000, '2021-11-01', '2022-05-29'),
+(38, 'test2', 'paris','bordeau',30000, '2022-03-01', '2022-05-07'),
+(28, 'Juliette','bordeau','paris', 30000, '2021-11-01', '2022-04-24'),
+(39, 'test2','bordeau','paris', 30000, '2022-05-01', '2022-05-29'),
+(41, 'Amigo2','bordeau','paris', 30000, '2022-05-01', '2022-05-29'),
+(34, 'Etee','paris','bordeau', 30000, '2021-11-01', '2022-05-05');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,14 @@
+;smtp_server=mail.mydomain.com
+smtp_server=smtp.gmail.com
+
+; smtp port (normalement 25, mais Gmail requiert le port 465)
+smtp_port=465
+
+;default_domain=mydomain.com
+default_domain=smtp.gmail.com
+
+; if your smtp server requires authentication, modify the following two lines
+auth_username=wongfeyhong1@gmail.com
+auth_password=<votre mot de passe>
+
+force_sender=<votre adresse>@gmail.com

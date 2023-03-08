@@ -1,0 +1,34 @@
+  /* Fonction de géocodage inversé (en fonction des coordonnées de l'adresse)  */
+  function codeLatLng(input) {
+    var latlngStr = input.split(",",2);
+    var lat = parseFloat(latlngStr[0]);
+    var lng = parseFloat(latlngStr[1]);
+    var latlng = new google.maps.LatLng(lat, lng);
+    geocoder.geocode({'latLng': latlng}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        if (results[0]) {
+          map.setZoom(11);
+          marker = new google.maps.Marker({
+            position: latlng,
+            map: map
+          });
+          var elt = results[0].address_components;
+          for(i in elt){
+            if(elt[i].types[0] == 'postal_code')
+            document.getElementById('cp').value = elt[i].long_name;
+            if(elt[i].types[0] == 'locality')
+            document.getElementById('adr').value = elt[i].long_name;
+            if(elt[i].types[0] == 'administrative_area_level_2')
+            document.getElementById('dpt').value = elt[i].long_name;
+            if(elt[i].types[0] == 'country')
+            document.getElementById('pays').value = elt[i].long_name;
+          }
+          infowindow.setContent(results[0].formatted_address);
+          infowindow.open(map, marker);
+          map.setCenter(latlng);
+        }
+      } else {
+        alert("Geocoder failed due to: " + status);
+      }
+    });
+  }
