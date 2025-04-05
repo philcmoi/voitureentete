@@ -14,8 +14,10 @@ if (isset($_POST['order_number'],$_POST['conducteur'],$_POST['conducteur'],$_POS
 //     $idmembre = 0;
     
     try {
-    
-        $PDO = new PDO('mysql:host=localhost;dbname=u909244959_lhpp','u909244959_lhpp','l@99339RWFH5465');
+        $PDO = new PDO("mysql:host=localhost;dbname=philippe",'root','');
+
+        //$pdo = new PDO('mysql:host=localhost;dbname=philippe','root','');
+        //$PDO = new PDO('mysql:host=localhost;dbname=u909244959_lhpp','u909244959_lhpp','l@99339RWFH5465');
         $PDO->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
         $PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
 //       $pdo = new PDO('mysql:host=localhost;dbname=philippe','root','');
